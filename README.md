@@ -11,4 +11,4 @@ Adds a third level city to state dropdown using WC City Select (https://wordpres
 ## Learn to WordPress add admin notices
 How to add an admin notice to a new plugin with a plugin dependency
 
-<img src="screenshot-1.png" alt="an admin notice to a new plugin with a plugin dependency">
+<img src="Screenshot-1.png" alt="an admin notice to a new plugin with a plugin dependency">
