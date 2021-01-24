@@ -20,19 +20,34 @@ defined( 'ABSPATH') or die('Please get proper access');
  * Pick states from https://github.com/woocommerce/woocommerce/blob/master/i18n/states.php
  */ 
 
-// add_filter( 'wc_city_select_cities', 'my_cities' );
+// Add aplugin notice to check for WC city Select as active plugin.
+add_action( 'plugins_loaded', 'check_for_wc_city_select_active' );
 
-// function my_cities( $cities ) {
-// 
-//     $cities['UG'] = array(
-//         'UG314' => array(
-//             'Sakodi',
-//             'Bluetag'
-//         ),
-//         'UG102' => array(
-//             'Nakawa',
-//             'Makindye'
-//         )
-//     );
-//     return $cities;
-// }
+function check_for_wc_city_select_active() {
+    if( ! class_exists( 'WC_City_Select' ) ) {
+        add_action( 'admin_notices', 'notice_wc_city_select_activate' );
+        return;
+    }
+
+    add_filter( 'wc_city_select_cities', 'techiepress_my_cities' );
+}
+
+function notice_wc_city_select_activate() {
+    $message = sprintf( __( 'States and cities for Woocommerce requires the <a href="%s">WC City Select</a> plugin to be active', 'states-and-cities-for-woocommerce' ), 'https://wordpress.org/plugins/wc-city-select/' );
+    printf( '<div class="error notice-error notice is-dismissible"><p>%s</p></div>', $message );
+}
+
+function techiepress_my_cities( $cities ) {
+
+    $cities['UG'] = array(
+        'UG314' => array(
+            'Sakodi',
+            'Bluetag'
+        ),
+        'UG102' => array(
+            'Nakawa',
+            'Makindye'
+        )
+    );
+    return $cities;
+}
