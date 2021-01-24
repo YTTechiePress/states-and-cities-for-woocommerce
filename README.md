@@ -2,6 +2,10 @@
 
 Adds a third level city to state dropdown using WC City Select (https://wordpress.org/plugins/wc-city-select/) plugin.
 
+## Plugins used: 
+- https://wordpress.org/plugins/wc-city-select/ 
+- https://wordpress.org/plugins/states-cities-and-places-for-woocommerce/
+
 ## Requirements
 - Add cities to Woocommerce. Needs WC City Select (https://wordpress.org/plugins/wc-city-select/) plugin installed.
 - Replace XX with the country code. Instead of YYY, ZZZ use actual state codes.
